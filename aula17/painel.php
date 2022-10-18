@@ -1,6 +1,6 @@
 <?php
 include_once "config.php";
-//checkLogin();
+checkLogin();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +12,7 @@ include_once "config.php";
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <h1>Painel de controle - <a href="logout.php"> sair </a> </h1>
+  <h1>Painel de controle - <a href="logout.php">SAIR</a></h1>
   <a href="new_user.php" class="btn">Novo usuário</a>
   <table width=100%;>
     <tr>
