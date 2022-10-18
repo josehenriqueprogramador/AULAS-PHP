@@ -6,13 +6,16 @@ if((isset($_POST)) && (!empty($_POST))){
     $dados = $_POST;
 
     $usr = new Usuarios;
+    $result = $usr->login($dados);
 
-    if($usr->login($dados))
+    if($result == true)
     {
         WSError("Olá ".$_SESSION['usr']['nome']." seja bem-vindo!",WS_ACCEPT);
         header("location:painel.php");
     }else{
-        WSError("Usuário ou senha inválida!", WS_ALERT);
+        
+        WSError($_SESSION["error"]["msg"], $_SESSION["error"]["type"]);
+        unset($_SESSION["error"]);
     }
     //echo "<pre>";
     //var_dump($_POST);

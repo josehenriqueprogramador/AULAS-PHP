@@ -10,6 +10,15 @@ class Usuarios extends Sql
         $dados = array_map("strip_tags", $dados);
         $dados = array_map("trim", $dados);
 
+        //validando e-mail
+        if(!Check::campo("email", $dados["email"]))
+        {
+            $_SESSION["error"] ["msg"] = "E-mail inválido ou incomplero. Tente novamente";
+            $_SESSION["error"] ["type"] = WS_INFOR;
+            return false;
+
+        }
+
         // Dados limpos são armazenados para uso posterior
         $this->dados = $dados;
 
@@ -25,6 +34,9 @@ class Usuarios extends Sql
             $_SESSION["usr"] = $result[0];
             return true;
         }else{
+            $_SESSION["error"] ["msg"] = "E-mail ou senha inválida. Tente novamente";
+            $_SESSION["error"] ["type"] = WS_ALERT;
+           
             return false;
         }
 
