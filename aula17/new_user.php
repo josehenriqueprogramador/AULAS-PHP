@@ -1,6 +1,5 @@
 <?php
-include_once "config.php";
-checkLogin();
+
 
     if((isset($_GET["act"]))&&(!empty($_GET["act"])))
     {

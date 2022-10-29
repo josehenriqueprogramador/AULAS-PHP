@@ -1,0 +1,8 @@
+{
+    "name":"faetec/vagas",
+    "autoload":{
+      "psr-4":{
+        "Henriquejardim\\":"app/"
+      }
+    }
+  }
