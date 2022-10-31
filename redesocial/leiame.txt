@@ -1,0 +1,63 @@
+Este projeto foi estruturado em PHP e MySql
+Para instalação do projeto em seu computador,
+devemos primeiramente ter o composer instalado,
+para a criação das rotas atraves do PSR-4.
+Onde será criado o namespace apontando para a pasta MVC.
+
+é preciso também habilitar o Apche no RewriteRule 
+Documentação oficial do Apache
+Flags: https://httpd.apache.org/docs/2.4/rewrite/flags.html
+Variáveis e operadores: https://httpd.apache.org/docs/current/expr.html
+
+abaixo a estrutura de tabelas, amizade, posts e usuarios.
+basta copiar esta estrutura e colar em SQL no phpmyadmin ou na linha de comando.
+
+
+-- Estrutura da tabela amizades
+
+CREATE TABLE amizades (
+
+  id int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+
+  enviou int(11) NOT NULL,
+
+  recebeu int(11) NOT NULL,
+
+  status int(11) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- Estrutura da tabela posts
+
+
+CREATE TABLE posts (
+
+  id int(11) KEY AUTO_INCREMENT NOT NULL,
+
+  usuario_id int(11) NOT NULL,
+
+  post text NOT NULL,
+
+  date datetime NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- Estrutura da tabela usuarios
+
+CREATE TABLE usuarios (
+
+  id int(11) KEY AUTO_INCREMENT NOT NULL,
+
+  nome varchar(255) NOT NULL,
+
+  email varchar(255) NOT NULL,
+
+  senha text NOT NULL,
+
+  ultimo_post datetime NOT NULL,
+
+  img text NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

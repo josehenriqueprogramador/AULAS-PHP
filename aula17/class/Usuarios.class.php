@@ -20,7 +20,7 @@ class Usuarios extends Sql
         // Dados limpos são armazenados para uso posterior
         $this->dados = $dados;
 
-        $query = "SELECT * FROM tb_users WHERE email = :email AND senha = :senha";
+        $query = "SELECT * FROM users WHERE email = :email AND senha = :senha";
         $sql = new Sql();
         $result = $sql->select($query, array(
             ':email' => $this->dados['email'],
@@ -48,7 +48,7 @@ class Usuarios extends Sql
     {
         $sql = new Sql();
 
-        $query = "SELECT * FROM tb_users";
+        $query = "SELECT * FROM users";
         $result = $sql->select($query);
 
         return $result;
@@ -57,7 +57,7 @@ class Usuarios extends Sql
     {
         $sql = new Sql();
 
-        $query = "SELECT * FROM tb_users WHERE id=:id ";
+        $query = "SELECT * FROM users WHERE id=:id ";
         $result = $sql->select($query, array(
             ":id"=>$id
         ));
@@ -111,7 +111,7 @@ class Usuarios extends Sql
     public function delUsuario(int $id):bool
     {
         $sql = new Sql();
-        $query = "DELETE FROM tb_users WHERE id = :id;";
+        $query = "DELETE FROM users WHERE id = :id;";
         if($sql->query($query, array(":id"=>$id)))
         {
             return true;
